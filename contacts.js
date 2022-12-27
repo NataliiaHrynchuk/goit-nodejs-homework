@@ -5,9 +5,8 @@ const { nanoid } = require('nanoid');
 const dbPath = path.resolve(__dirname, './db/contacts.json');
 
 async function readDb() {
-  const dbRaw = await fs.readFile(dbPath);
-  const db = JSON.parse(dbRaw);
-  return db;
+  const db = await fs.readFile(dbPath);
+  return JSON.parse(db);
 }
 
 async function writeDb(db) {
@@ -15,8 +14,7 @@ async function writeDb(db) {
 }
     
 async function listContacts() {
-  const db = await readDb();
-  return db;
+  return await readDb();
 }
 
 async function getContactById(contactId) {
